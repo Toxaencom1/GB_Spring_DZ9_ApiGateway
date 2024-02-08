@@ -1,0 +1,21 @@
+server:
+  port: 8765
+
+spring:
+  application:
+    name: ApiGateway
+  cloud:
+    gateway:
+      routes:
+        - id: Client
+          uri: http://localhost:8080/
+          predicates:
+            - Path=/client/**
+        - id: Payment
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/payment/**
+        - id: Storehouse
+          uri: http://localhost:8079/
+          predicates:
+            - Path=/store/**
