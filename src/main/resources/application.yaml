@@ -7,10 +7,6 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: Client
-          uri: http://localhost:8080/
-          predicates:
-            - Path=/client/**
         - id: Payment
           uri: http://localhost:8081/
           predicates:
